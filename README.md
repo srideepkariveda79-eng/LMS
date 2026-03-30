@@ -3,7 +3,6 @@
 A full-stack Learning Management System built for Arohak Inc.
 
 ---
-
 ## Tech Stack
 
 | Layer | Technology |
