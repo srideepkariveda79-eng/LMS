@@ -18,7 +18,12 @@ async function bootstrap() {
   app.enableCors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true)
+      // Allow exact matches
       if (allowedOrigins.includes(origin)) return callback(null, true)
+      // Allow all Vercel preview deployments
+      if (/\.vercel\.app$/.test(origin)) return callback(null, true)
+      // Allow Railway internal
+      if (/\.up\.railway\.app$/.test(origin)) return callback(null, true)
       callback(new Error('Not allowed by CORS'))
     },
     credentials: true,
