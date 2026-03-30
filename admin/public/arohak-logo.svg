@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" fill="none">
+  <!-- Mountain peak "A" emblem -->
+  <g transform="translate(8, 4)">
+    <!-- Outer glow/shadow -->
+    <polygon points="32,6 58,54 6,54" fill="url(#outerGrad)" opacity="0.18"/>
+    <!-- Left face of mountain (darker red) -->
+    <polygon points="32,8 18,52 32,40" fill="url(#leftFace)"/>
+    <!-- Right face of mountain (brighter red/orange) -->
+    <polygon points="32,8 46,52 32,40" fill="url(#rightFace)"/>
+    <!-- Snow cap / peak highlight -->
+    <polygon points="32,8 26,22 32,18 38,22" fill="url(#snowCap)" opacity="0.92"/>
+    <!-- Gold crossbar -->
+    <rect x="20" y="38" width="24" height="3.5" rx="1.75" fill="url(#goldBar)"/>
+    <!-- Peak star dot -->
+    <circle cx="32" cy="8" r="2.2" fill="#FFD700"/>
+  </g>
+
+  <!-- AROHAK text -->
+  <text x="76" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" letter-spacing="3" fill="url(#textGrad)">AROHAK</text>
+  <!-- Tagline -->
+  <text x="77" y="54" font-family="Arial, sans-serif" font-size="7.5" font-weight="500" letter-spacing="2.5" fill="#c0a060" opacity="0.9">ATTITUDE DETERMINES ALTITUDE</text>
+
+  <defs>
+    <linearGradient id="outerGrad" x1="32" y1="6" x2="32" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff4444"/>
+      <stop offset="100%" stop-color="#8b0000"/>
+    </linearGradient>
+    <linearGradient id="leftFace" x1="18" y1="8" x2="32" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#cc1111"/>
+      <stop offset="100%" stop-color="#7a0000"/>
+    </linearGradient>
+    <linearGradient id="rightFace" x1="46" y1="8" x2="32" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff5533"/>
+      <stop offset="100%" stop-color="#aa1100"/>
+    </linearGradient>
+    <linearGradient id="snowCap" x1="32" y1="8" x2="32" y2="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff5e0"/>
+      <stop offset="100%" stop-color="#ffd580"/>
+    </linearGradient>
+    <linearGradient id="goldBar" x1="20" y1="38" x2="44" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c8860a"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#c8860a"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="76" y1="20" x2="200" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f0d090"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+  </defs>
+</svg>

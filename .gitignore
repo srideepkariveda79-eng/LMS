@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.env
+*.env.local
+.DS_Store
+Thumbs.db
+
+# Uploads (now on Cloudinary)
+backend-nest/uploads/
+
+# Build outputs
+frontend/dist/
+admin/dist/
+backend-nest/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Redis dump
+dump.rdb
