@@ -11,8 +11,8 @@ export class MailerService implements OnModuleInit {
     // Brevo (Sendinblue) SMTP
     this.transporter = nodemailer.createTransport({
       host: 'smtp-relay.brevo.com',
-      port: 587,
-      secure: false,
+      port: 465,
+      secure: true,
       auth: {
         user: 'arohak.lms.auth@gmail.com',
         pass: process.env.BREVO_API_KEY,
