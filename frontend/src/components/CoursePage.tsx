@@ -143,7 +143,7 @@ const CoursePage = () => {
           <circle cx="200" cy="200" r="60" fill="none" stroke="#dc2626" strokeWidth="2" strokeDasharray="4 4"/>
         </svg>
         <svg className="absolute bottom-20 left-0 w-64 h-64 opacity-[0.04]" viewBox="0 0 300 300">
-          {[0,1,2,3,4].map(i => (
+          {[0,1,2].map(i => (
             <rect key={i} x={20+i*50} y={20+i*50} width={260-i*100} height={260-i*100} fill="none" stroke="#dc2626" strokeWidth="1.5" rx="8"/>
           ))}
         </svg>
