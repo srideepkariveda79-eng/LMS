@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { Lock, Eye, EyeOff, CheckCircle } from 'lucide-react'
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || import.meta.env.VITE_API_URL || 'http://localhost:4000'
 
 const ResetPassword = () => {
   const [params] = useSearchParams()

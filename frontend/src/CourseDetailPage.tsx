@@ -20,7 +20,7 @@ import {
 import { useAuth as useAuthContext } from "./context/AuthContext";
 import { courseDetailStyles } from "./assets/dummyStyles";
 
-const API_BASE = "http://localhost:4000";
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:4000'
 
 const fmtMinutes = (mins) => {
   const h = Math.floor((mins || 0) / 60);

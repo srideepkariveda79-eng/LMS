@@ -5,7 +5,7 @@ import { Play, Star, User, BookOpen, Award, Heart } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { useWishlist } from '../hooks/useWishlist'
 
-const API_BASE = 'http://localhost:4000'
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:4000'
 
 
 const MyCourses = () => {
