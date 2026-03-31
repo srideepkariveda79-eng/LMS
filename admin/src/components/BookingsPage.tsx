@@ -3,7 +3,7 @@ import { bookingsStyles } from '../assets/dummyStyles'
 import { BookOpen, GraduationCap, Search, User } from 'lucide-react';
 
 
-const API_BASE = 'http://localhost:4000'
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:4000'
 
 const BookingsPage = () => {
 

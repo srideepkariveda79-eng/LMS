@@ -7,7 +7,7 @@ import {
   ListOrdered, PenLine, Plus, Star, Upload, UserPen, Video, X, Award, Trash2
 } from 'lucide-react'
 
-const API_BASE = 'http://localhost:4000'
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:4000'
 
 const formatDuration = (a, b) => {
   let hours = 0, minutes = 0

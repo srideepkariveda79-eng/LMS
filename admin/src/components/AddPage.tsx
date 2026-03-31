@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'react-hot-toast'
 import { BookOpenText, ChevronDown, ChevronUp, Clock, HelpCircle, Image as ImageIcon, ListOrdered, PenLine, Plus, Star, Upload, UserPen, Video, X, Award } from 'lucide-react';
 
-const API_BASE = 'http://localhost:4000'
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:4000'
 
 // formatDuration accepts either {hours, minutes} or (hours, minutes)
 const formatDuration = (a, b) => {

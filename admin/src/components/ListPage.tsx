@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { BookOpen, Clock, Edit2, Eye, EyeClosed, HelpCircle, Plus, Search, Star, StarHalf, Trash2, Video, X } from 'lucide-react'
 
-const API_BASE = 'http://localhost:4000'
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:4000'
 
 // ── Inline Quiz Editor ──────────────────────────────────────────────────────
 const QuizEditor = ({ course, onClose, onSaved }) => {
@@ -137,7 +137,7 @@ const [courses, setCourses] = useState([])
 const [loading, setLoading] = useState(false)
 const [quizEditorCourse, setQuizEditorCourse] = useState(null)
 
-const API_BASE = 'http://localhost:4000'
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:4000'
 
 // build image URL
   const getImageUrl = (imagePath) => {
