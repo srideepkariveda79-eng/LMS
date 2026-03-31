@@ -7,18 +7,26 @@ export class RedisService implements OnModuleInit {
   private readonly logger = new Logger(RedisService.name)
 
   onModuleInit() {
-    const url = process.env.REDIS_URL
+    let url = process.env.REDIS_URL
     if (!url) {
       this.logger.warn('⚠️  Redis URL not found. Running without cache.')
       return
     }
-    this.client = new Redis(url, {
-      maxRetriesPerRequest: 3,
-      enableReadyCheck: true,
-      retryStrategy: (times) => Math.min(times * 50, 2000),
-    })
-    this.client.on('connect', () => this.logger.log('✅ Redis connected'))
-    this.client.on('error', (err: Error) => this.logger.error('❌ Redis error:', err.message))
+    // Strip surrounding quotes if accidentally added in env vars
+    url = url.replace(/^["']|["']$/g, '').trim()
+    try {
+      this.client = new Redis(url, {
+        maxRetriesPerRequest: 3,
+        enableReadyCheck: false,
+        lazyConnect: true,
+        retryStrategy: (times) => times > 3 ? null : Math.min(times * 200, 2000),
+      })
+      this.client.on('connect', () => this.logger.log('✅ Redis connected'))
+      this.client.on('error', (err: Error) => this.logger.error('❌ Redis error:', err.message))
+    } catch (e) {
+      this.logger.error('❌ Redis init failed:', e.message)
+      this.client = null
+    }
   }
 
   async get(key: string): Promise<unknown> {
