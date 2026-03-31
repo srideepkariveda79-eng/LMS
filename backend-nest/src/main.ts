@@ -26,6 +26,11 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api')
 
+  // Health check endpoint for Railway
+  const expressApp = app.getHttpAdapter().getInstance()
+  expressApp.get('/health', (_req: any, res: any) => res.json({ status: 'ok' }))
+  expressApp.get('/', (_req: any, res: any) => res.json({ status: 'ok', service: 'Arohak LMS API' }))
+
   const port = process.env.PORT || 4000
   await app.listen(port)
   console.log(`🚀 Server running on port ${port}`)
