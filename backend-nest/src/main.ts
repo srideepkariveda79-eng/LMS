@@ -5,6 +5,13 @@ import { join } from 'path'
 import { existsSync, mkdirSync } from 'fs'
 import { NestExpressApplication } from '@nestjs/platform-express'
 
+process.on('uncaughtException', (err) => {
+  console.error('💥 Uncaught Exception:', err.message, err.stack)
+})
+process.on('unhandledRejection', (reason) => {
+  console.error('💥 Unhandled Rejection:', reason)
+})
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
 
@@ -21,8 +28,12 @@ async function bootstrap() {
   app.enableCors({ origin: '*', credentials: false })
 
   const uploadsPath = join(process.cwd(), 'uploads')
-  if (!existsSync(uploadsPath)) mkdirSync(uploadsPath, { recursive: true })
-  app.useStaticAssets(uploadsPath, { prefix: '/uploads' })
+  try {
+    if (!existsSync(uploadsPath)) mkdirSync(uploadsPath, { recursive: true })
+    app.useStaticAssets(uploadsPath, { prefix: '/uploads' })
+  } catch (e) {
+    console.warn('⚠️ Could not setup static assets:', e.message)
+  }
 
   app.setGlobalPrefix('api')
 
