@@ -8,12 +8,9 @@ import { NestExpressApplication } from '@nestjs/platform-express'
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
 
-  app.enableCors({
-    origin: true,
-    credentials: true,
-  })
+  // CORS: allow all origins
+  app.enableCors({ origin: '*', credentials: false })
 
-  // ensure uploads folder exists before serving
   const uploadsPath = join(process.cwd(), 'uploads')
   if (!existsSync(uploadsPath)) mkdirSync(uploadsPath, { recursive: true })
   app.useStaticAssets(uploadsPath, { prefix: '/uploads' })
@@ -22,7 +19,7 @@ async function bootstrap() {
 
   const port = process.env.PORT || 4000
   await app.listen(port)
-  console.log(`🚀 Server is running on port ${port}`)
+  console.log(`🚀 Server running on port ${port}`)
 }
 
 bootstrap()
